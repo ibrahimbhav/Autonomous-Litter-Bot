@@ -1,1 +1,13 @@
-# litter_detection
+# Autonomous Litter Mapper
+
+## WHAT PROBLEM WE SOLVE?
+
+Our robot traverses a room and produces a map of all of the litter on the floor.
+
+## IN-DEPTH DESCRIPTION:
+
+In an innovative approach to address environmental pollution, our project introduces an autonomous vehicle designed to detect and map litter in various environments. This solution leverages the Raspberry Pi platform, equipped with two servo motors and wheels for navigation, and two ultrasonic sensors for obstacle avoidance. The core of our technology lies in its object detection capabilities, powered by a camera integrated with a pre-trained TensorFlow machine learning model. The vehicle autonomously navigates through areas, utilizing ultrasonic sensors to identify and maneuver around obstacles using a sophisticated avoidance detection algorithm. Upon encountering potential litter, the vehicle utilizes the pre-trained model  to determine the object’s identity. Instead of relying on continuous live video analysis, which is computationally demanding for the compact raspberry pi, the vehicle captures a snapshot when it encounters an object in its path. These images are then analyzed by the model to determine if the objects are indeed waste material. By doing so, we maintain the vehicle's responsiveness and prolong its operational duration, making it a practical solution for real-world applications. The machine learning model used in this project has been carefully selected and trained to accurately identify a wide range of litter items, from plastic bottles to paper debris, making our vehicle a versatile tool in the fight against pollution. After taking each snapshot, and detecting all the waste material within a specified space, the application produces a map of all the litter within the space. This project not only demonstrates the feasibility of using low-cost technology for environmental monitoring but also paves the way for future innovations in autonomous environmental cleanup. By combining robotics, artificial intelligence, and environmental science, we are taking a significant step towards creating more sustainable and cleaner communities.
+
+## HOW DID WE IMPLEMENT THE AVOIDANCE SYSTEM?
+
+We started by implementing basic movement commands to streamline implementation of autonomous movement algorithms. For the traversal, we used a pseudo-randomized DFS traversal of a room using a simple coordinate system and movement in four cardinal directions. When our ultrasonic sensors detected an object, we took a snapshot of it and used a pre-trained machine learning model to classify what kind of litter it is. We then saved this current coordinate as a node in a two dimensional undirected graph, and continued the traversal of the room. Of course, walls and chairs are detected as objects, but since they are not classified as trash, they are not saved to the graph.
