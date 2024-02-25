@@ -1,1 +1,1 @@
-# LITTERROBOT
+# litter_detection
